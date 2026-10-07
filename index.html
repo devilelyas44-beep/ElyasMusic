@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>माय बॉट कंट्रोल पैनल</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    body {
+      background: linear-gradient(135deg, #87CEEB, #00BFFF);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+    .panel-card {
+      background-color: #1e1e2f;
+      color: #ffffff;
+      width: 100%;
+      max-width: 500px;
+      border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+      padding: 25px;
+    }
+    .panel-card h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #00BFFF;
+    }
+    .section {
+      margin-bottom: 20px;
+      background: #2a2a40;
+      padding: 15px;
+      border-radius: 8px;
+    }
+    .section h3 {
+      font-size: 16px;
+      margin-bottom: 10px;
+      color: #87CEEB;
+    }
+    input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border-radius: 6px;
+      border: 1px solid #444;
+      background: #141421;
+      color: #fff;
+    }
+    .btn-group {
+      display: flex;
+      gap: 10px;
+    }
+    button {
+      flex: 1;
+      padding: 12px;
+      border: none;
+      border-radius: 6px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+    .btn-start { background-color: #28a745; color: white; }
+    .btn-stop { background-color: #dc3545; color: white; }
+    .btn-save { background-color: #007bff; color: white; width: 100%; }
+    button:hover { opacity: 0.9; }
+    #status {
+      margin-top: 15px;
+      text-align: center;
+      font-weight: bold;
+      color: #ffc107;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="panel-card">
+    <h2>बॉट कंट्रोल पैनल</h2>
+
+    <div class="section">
+      <h3>एनवायरनमेंट (Environment Variables)</h3>
+      <input type="text" id="botToken" placeholder="BOT_TOKEN दर्ज करें">
+      <input type="text" id="ownerId" placeholder="OWNER_ID दर्ज करें">
+      <button class="btn-save" onclick="saveEnv()">सेटिंग्स सेव करें</button>
+    </div>
+
+    <div class="section">
+      <h3>कंट्रोल बटन</h3>
+      <div class="btn-group">
+        <button class="btn-start" onclick="controlBot('start')">START BOT</button>
+        <button class="btn-stop" onclick="controlBot('stop')">STOP BOT</button>
+      </div>
+      <p id="status">स्थिति: बॉट बंद है</p>
+    </div>
+  </div>
+
+  <script>
+    function saveEnv() {
+      alert('सेटिंग्स सेव हो गई हैं!');
+    }
+
+    function controlBot(action) {
+      const statusText = document.getElementById('status');
+      if (action === 'start') {
+        statusText.innerText = "स्थिति: बॉट चालू हो रहा है...";
+        statusText.style.color = "#28a745";
+      } else {
+        statusText.innerText = "स्थिति: बॉट बंद कर दिया गया है";
+        statusText.style.color = "#dc3545";
+      }
+    }
+  </script>
+
+</body>
+</html>
